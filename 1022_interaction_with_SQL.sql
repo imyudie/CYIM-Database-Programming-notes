@@ -70,4 +70,14 @@ update emp set c1=c_name,c2=c_name ; -- 會針對所有資料做更新
 update emp set c1=c_name,c2=c_name where c3 > 100; -- 會針對符合條件的資料做更新
 --只要 update 內有 values 都可使用區域變數替代。
 delete from emp where c1 = v1; 
+
+
+merge into tgt
+    using src
+    on src.id = tgc.id
+    when matched then
+        update set tgc.c1 = src.c1
+    when not matched then
+        insert (id,total)
+        values (src.id,src.total);
 */
