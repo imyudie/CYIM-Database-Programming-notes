@@ -63,3 +63,11 @@ BEGIN
     WHERE e.employee_id = 100;
     DBMS_OUTPUT.PUT_LINE(l_dept_name);
 END;
+/
+/*
+insert into emp(c1,c2) values(v1,v2);
+update emp set c1=c_name,c2=c_name ; -- 會針對所有資料做更新
+update emp set c1=c_name,c2=c_name where c3 > 100; -- 會針對符合條件的資料做更新
+--只要 update 內有 values 都可使用區域變數替代。
+delete from emp where c1 = v1; 
+*/
