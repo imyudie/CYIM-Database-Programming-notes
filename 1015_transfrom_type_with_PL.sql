@@ -30,6 +30,7 @@ select TO_CHAR(HIRE_DATE ,'MONTH DD,YYYY')
 from employees 
 WHERE HIRE_DATE <= TO_date('OCT 15,2005','MON dd,YYYY');
 /
+
 /*
 變數生命範圍
 生命可見範圍(scope visibility declare)

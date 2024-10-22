@@ -7,6 +7,8 @@ Block
 2.更新emp01 中的 salary 欄位，增加平均薪水的5%
 
 */
+
+set serveroutput on
 DECLARE
     l_avg employees.salary%TYPE;
 BEGIN
@@ -15,5 +17,6 @@ BEGIN
     SET salary = salary + l_avg * 0.05;
     COMMIT;
     DBMS_OUTPUT.PUT_LINE('更新完成');
-END;/
+END;
+/
 
