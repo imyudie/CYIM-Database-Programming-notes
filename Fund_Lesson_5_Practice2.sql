@@ -16,7 +16,8 @@ from employees e
 where rownum <3;
 
 select tname from tab where tname like 'EMP_SALARY%';
-/
+
+set serveroutput on
 DECLARE
   v_count NUMBER;
 BEGIN
@@ -31,6 +32,7 @@ BEGIN
         
     v_count := SQL%ROWCOUNT;
     COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Rows updated: ' || v_count);
 END;
 /
 select * from emp_salary_1;
