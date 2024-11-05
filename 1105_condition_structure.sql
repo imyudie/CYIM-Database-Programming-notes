@@ -77,4 +77,40 @@ e.g. csae statements 依條件執行stmt
             stmt;
     end case;
 
+def. basic loops -- 條件成立後停止時使用
+    loop
+        statements;
+        update condition;
+        exit when condition;
+    end loop;
+
+def. while loop --條件成立後繼續
+    while condition loop -- continue when condition is TRUE;
+        statements;
+        update condition;
+    end loop;
+
+def. for loop --明確開始&結束範圍
+    for counter in lower_bound..upper_bound loop 
+    -- the counter is declared implicitly(隱含宣告)
+    -- do not revise the counter 
+    -- counter is auto-value, and the type is integer.
+        statements;
+    end loop;
+
+    --loop operate
+        continue [label] when condition
+        exit [label] when condition
+
+    e.g. use label whit operate loop
+        <<outer>>
+        for i in 1..10 loop
+            for j in 1..10 loop
+                exut when condition; -- go to A
+                exit outer when condition; -- go to B
+            end loop; -- tag A
+        end loop;--tag B
+        
+    --continue loop 
+    --Usage is the same as 'EXIT'.       
 */
