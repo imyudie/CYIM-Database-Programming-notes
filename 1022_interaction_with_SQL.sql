@@ -20,9 +20,9 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(l_salary);
     /* 子句
     1.取出欄位清單 e.g. SELECT
-    2.賦予區域變數清單 e.g. into
+    2.賦予區域變數清單 e.g. into --yes
     3.指定欄位資料來源 e.g. from
-    4.篩選/過濾 e.g. where
+    4.篩選/過濾 e.g. where --yes
     5.排序 e.g. order by
     6.分群 e.g. group by
     7.分群後篩選 e.g. having
