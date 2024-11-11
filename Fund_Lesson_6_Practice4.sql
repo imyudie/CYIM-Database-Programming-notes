@@ -16,10 +16,12 @@ BEGIN
         elsif emp_salary <= 2500 then
             insert into B_EMP (employee_id, salary) values (emp_id, emp_salary);
         else 
-            DBMS_OUTPUT.PUT_LINE('id = '||emp_id||' and salary = '||emp_salary||'不符合');
+            DBMS_OUTPUT.PUT_LINE('id = '||emp_id||' and salary = '||emp_salary||' 不符合');
         end if;
     end loop;
 end;
 /
 SELECT * FROM A_EMP;
 SELECT * FROM B_EMP;
+Drop table A_EMP;
+Drop table B_EMP;

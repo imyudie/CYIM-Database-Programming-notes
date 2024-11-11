@@ -16,7 +16,8 @@ from employees e
 where rownum <3;
 
 select tname from tab where tname like 'EMP_SALARY%';
-
+SELECT * FROM emp_salary_1;
+SELECT * FROM emp_salary_2;
 set serveroutput on
 DECLARE
   v_count NUMBER;
@@ -36,3 +37,5 @@ BEGIN
 END;
 /
 select * from emp_salary_1;
+drop table emp_salary_1;
+drop table emp_salary_2;

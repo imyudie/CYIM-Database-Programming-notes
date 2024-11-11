@@ -40,3 +40,6 @@ when not matched then
     insert (OM.order_id, OM.order_total) values (MO.order_id, MO.order_total);
 commit;   
 /
+SELECT * FROM order_master;
+drop table order_master;
+drop table monthly_orders;
