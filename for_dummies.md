@@ -392,24 +392,63 @@ END IF;
 
 ```sql
 CASE
-    WHEN condition1 THEN result1
-    WHEN condition2 THEN result2
-    ELSE default_result
-END;
+    WHEN condition1 THEN 
+      statements
+    WHEN condition2 THEN 
+      statements
+    ELSE 
+      statements
+END CASE;
 ```
 
 - **簡單 CASE（Simple CASE）**
 
 ```sql
 CASE expression
-    WHEN value1 THEN result1
-    WHEN value2 THEN result2
-    ELSE default_result
-END;
+    WHEN value1 THEN 
+      statements
+    WHEN value2 THEN 
+      statements
+    ELSE 
+      statements
+END CASE;
 ```
 
 - **例子**：
+```sql
+CASE
+    WHEN s <= 20 THEN 
+      level := 'E'
+    WHEN s <= 40 THEN
+      level := 'D'
+    WHEN s <= 60 THEN
+      level := 'C'
+    WHEN s <= 80 THEN
+      level:= 'B'
+    ELSE
+      level := 'A'
+END CASE;
 
+CASE l_rank
+    WHEN 'A' THEN 
+      output := 'Excellent'
+    WHEN 'B' THEN 
+      output := 'Good'
+    WHEN 'C' THEN 
+      output := 'Fair'
+    ELSE 
+      output := 'Needs Improvement'
+END CASE;
+```
+- **賦值CASE**
+```sql
+var := CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    ELSE default_result
+END ;
+```
+- **例子**：
 ```sql
 l_rank := CASE
     WHEN s <= 20 THEN 'E'
