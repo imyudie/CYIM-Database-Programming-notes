@@ -1,20 +1,21 @@
-set serveroutput on
-DECLARE
-    -- Define required variables
-    v_country_id varchar2 (20) := 'TW';
-    v_name VARCHAR2(20) := 'Taichung';
-    E_INVALID_LOCATION EXCEPTION;
+create or replace PROCEDURE RAISE_USER_DEFINE_ERROR AS 
 BEGIN
-    -- update the department
-    UPDATE locations
-    SET city = v_name
-    where country_id = v_country_id;
-    if sql%rowcount = 0 then
-        RAISE E_INVALID_LOCATION;
-    end if;
-    DBMS_OUTPUT.put_line('Updated rows: ' || sql%rowcount);
+  raise_application_error(-20000, 'Throw an app error. User-defined error.');
+END RAISE_USER_DEFINE_ERROR;
+/
+set serveroutput on
+declare
+    e_user_define_error exception;
+    pragma exception_init(e_user_define_error, -20000);
+BEGIN
+
+-- Add codes 
+-- call the procedure RAISE_USER_DEFINE_ERROR
+raise_user_define_error();
 EXCEPTION
-    WHEN E_INVALID_LOCATION THEN
-        DBMS_OUTPUT.put_line('No such country ID: '||v_country_id||' exists.');
+    WHEN e_user_define_error THEN
+        dbms_output.put_line('Err Msg:'||sqlerrm);
+-- Add codes 
+
 END;
 /
