@@ -9,8 +9,9 @@ BEGIN
     into v_date,v_salary
     from employees 
     where employee_id = 104;
-    v_new_date := v_date +365;
+    v_new_date := v_date +366;--受閏年影響，所以加366
     v_new_salary := v_salary*1.1;
+    --DBMS_OUTPUT.PUT_LINE(TO_DATE('2008-05-21', 'YYYY-MM-DD')-TO_DATE('2007-05-21', 'YYYY-MM-DD'));
     DBMS_OUTPUT.PUT_LINE('原始薪水: '||TO_CHAR(v_date, 'YYYY-MM-DD')||' Salary : '||v_salary);
     DBMS_OUTPUT.PUT_LINE('第一次加薪日期: '||TO_CHAR(v_new_date, 'YYYY-MM-DD')||' Salary : '||v_new_salary);
 END;
